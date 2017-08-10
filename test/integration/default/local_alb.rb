@@ -1,10 +1,11 @@
 require 'awspec'
 require 'parseconfig'
+require 'json'
 
-terraform_tfvars_config = ParseConfig.new('test/fixtures/terraform.tfvars')
+terraform_tfvars_config = ParseConfig.new('test/fixtures/default/terraform.tfvars')
 log_bucket = terraform_tfvars_config.params['log_bucket']
 log_prefix = terraform_tfvars_config.params['log_prefix']
-aws_account_id = terraform_tfvars_config.params['aws_account_id']
+aws_account_id = terraform_tfvars_config.params["account_id"]
 tf_state = JSON.parse(File.open('.kitchen/kitchen-terraform/default-aws/terraform.tfstate').read)
 principle_account_id = tf_state['modules'][0]['outputs']['principle_account_id']['value']
 vpc_id = tf_state['modules'][0]['outputs']['vpc_id']['value']

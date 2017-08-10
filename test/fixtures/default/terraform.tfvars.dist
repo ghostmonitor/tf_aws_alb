@@ -1,0 +1,10 @@
+log_bucket = "log-bucket-my-alb-test-us-east-1-2017"
+log_prefix = "my-alb-logs"
+
+aws = {
+  account_id = "xxxx"
+  azs = "us-east-1a,us-east-1b"
+  subnet_count = 2
+  region = "us-east-1"
+  certificate_arn = "xxxx"
+}

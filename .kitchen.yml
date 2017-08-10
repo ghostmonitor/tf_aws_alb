@@ -1,12 +1,12 @@
 ---
 driver:
   name: terraform
-
+  directory: test/fixtures/default
+  variable_files:
+    - test/fixtures/default/terraform.tfvars
+  
 provisioner:
   name: terraform
-  directory: test/fixtures
-  variable_files:
-    - test/fixtures/terraform.tfvars
 
 platforms:
   - name: aws
