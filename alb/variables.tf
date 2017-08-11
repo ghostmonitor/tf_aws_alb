@@ -8,6 +8,7 @@ variable "alb_is_internal" {
 }
 
 variable "alb_name" {
+  type = "string"
   description = "The name of the ALB as will show in the AWS EC2 ELB console."
   default     = "my-alb"
 }
@@ -23,10 +24,12 @@ variable "alb_security_groups" {
 }
 
 variable "aws_region" {
+  type = "string"
   description = "AWS region to use."
 }
 
 variable "aws_account_id" {
+  type = "string"
   description = "AWS account ID."
 }
 
@@ -42,6 +45,7 @@ variable "backend_protocol" {
 
 variable "certificate_arn" {
   description = "The ARN of the SSL Certificate. e.g. 'arn:aws:iam::123456789012:server-certificate/ProdServerCert'"
+  default     = ""
 }
 
 variable "cookie_duration" {
