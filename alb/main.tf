@@ -31,7 +31,7 @@ resource "aws_alb" "main" {
 resource "aws_s3_bucket" "log_bucket" {
   bucket        = "${var.log_bucket}"
   policy        = "${data.template_file.bucket_policy.rendered}"
-  force_destroy = true
+  force_destroy = false
 
   tags = "${merge(var.tags, map("Name", format("%s", var.log_bucket)))}"
 }

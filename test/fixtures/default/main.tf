@@ -12,15 +12,15 @@ module "vpc" {
   azs                = ["us-east-1a", "us-east-1b", "us-east-1c"]
 }
 
-module "sg_https_web" {
-  source              = "git::ssh://git@github.com/ghostmonitor/tf_aws_sg.git//sg_https_only"
-  security_group_name = "my-sg-https"
-  vpc_id              = "${module.vpc.vpc_id}"
-}
+# module "sg_https_web" {
+#   source              = "git::ssh://git@github.com/ghostmonitor/tf_aws_sg.git//sg_https_only"
+#   security_group_name = "my-sg-https"
+#   vpc_id              = "${module.vpc.vpc_id}"
+# }
 
 module "alb" {
   source              = "../../../alb/"
-  alb_security_groups = ["${module.sg_https_web.security_group_id_web}"]
+  alb_security_groups = [""]
   aws_account_id      = "${var.aws["account_id"]}"
   aws_region          = "${var.aws["region"]}"
   certificate_arn     = "${var.aws["certificate_arn"]}"
